@@ -4,7 +4,7 @@ import { UserButton } from '@clerk/nextjs'
 function Dashboard() {
   return (
     <div>
-      <UserButton></UserButton>
+      Dashboard-1
     </div>
   )
 }

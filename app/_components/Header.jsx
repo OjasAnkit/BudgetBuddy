@@ -12,7 +12,7 @@ function Header() {
   
   const { isSignedIn, user } = useUser();
   return (
-    // by giving a classname we are basically applying a pre defined css property called p-5
+    // by giving a classname we are basically applying a pre defined css property
     <div className='p-5 flex justify-between items-center border shadow-sm'> 
       <Image src={'./logo.svg'} 
       alt='logo'
@@ -24,9 +24,11 @@ function Header() {
           <Button>Get Started!</Button>
         </Link>) : 
         (<div className='flex justify-center space-x-3 items-center'> 
-            <Button variant='secondary'>
-              <RocketIcon className="mr-2 h-4 w-4" /> Dashboard
-            </Button>
+            <Link href={'/dashboard'}>
+              <Button variant='secondary'>
+                <RocketIcon className="mr-2 h-4 w-4" /> Dashboard
+              </Button>
+            </Link>
             <UserButton/>
         </div>)
       } 
