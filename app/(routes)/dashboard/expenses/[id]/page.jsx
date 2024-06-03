@@ -9,7 +9,7 @@ import { categories, expenses } from "@/utils/schema";
 import CategoryItem from '../../categories/_components/CategoryItem'
 import AddExpense from './_components/AddExpense'
 
-function Expenses({ params }) {
+function Expenses({ params }) { // Here params is an object that contains the dynamic segments (parameters) from a URL in a web application. It allows us to capture values from the URL and use them in our code. In general the params object contains various properties, but for our use case we can simply extract the id to fetch category ID
 
   const { user } = useUser();
   const [categoryInfo, setCategoryInfo] = useState();
@@ -48,7 +48,6 @@ function Expenses({ params }) {
             </div>
         }
         <AddExpense
-          categoryName={params.name}
           categoryID={params.id}
           user={user}
           refreshData={() => getCategoryInfo()} />
