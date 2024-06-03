@@ -5,7 +5,7 @@ import { Trash } from 'lucide-react'
 import React from 'react'
 import { toast } from 'sonner'
 
-export default function ExpenseListTable({ expenseList, categoryName, refreshData }) {
+export default function ExpenseListTable({ expenseList, refreshData }) {
 
     const deleteExpense = async (expense) => {
         const result = await db.delete(expenses)
@@ -15,14 +15,15 @@ export default function ExpenseListTable({ expenseList, categoryName, refreshDat
         if (result) {
             refreshData(); //using to refresh the expense table after deleting expense
             toast(`Expense Deleted!😁`, {
-                description: `You have successfully deleted '${expense.name}' expense from the ${categoryName} category.`,
+                description: `You have successfully deleted '${expense.name}' expense from the category.`,
             });
         }
     }
 
     return (
         <div className='mt-3'>
-            <div className='grid grid-cols-4 bg-slate-300 p-2 font-bold'>
+            <h2 className='font-bold text-lg mb-3 mt-5'>Latest Expenses</h2>
+            <div className='grid grid-cols-4 bg-blue-50 p-2 font-bold'>
                 <h2>Name</h2>
                 <h2>Amount</h2>
                 <h2>Date</h2>
@@ -33,7 +34,7 @@ export default function ExpenseListTable({ expenseList, categoryName, refreshDat
                     <h2>{expenses.name}</h2>
                     <h2>&#x20b9;{Number(expenses?.amount).toLocaleString("en-IN")}</h2>
                     <h2>{expenses.createdAt}</h2>
-                    <h2 className='text-red-600 cursor-pointer' // on clicking the delete button, calling the delete expense function, and passing the expense to be deleted
+                    <h2 className='text-red-600 cursor-pointer items-center' // on clicking the delete button, calling the delete expense function, and passing the expense to be deleted
                         onClick={() => deleteExpense(expenses)}><Trash></Trash></h2>
                 </div>
             ))}

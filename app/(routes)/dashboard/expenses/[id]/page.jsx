@@ -7,10 +7,10 @@ import { desc, eq, getTableColumns, sql } from 'drizzle-orm'
 import React, { useEffect, useState } from 'react'
 import { categories, expenses } from "@/utils/schema";
 import CategoryItem from '../../categories/_components/CategoryItem'
-import AddExpense from './_components/AddExpense'
-import ExpenseListTable from './_components/ExpenseListTable'
+import AddExpense from '../_components/AddExpense'
+import ExpenseListTable from '../_components/ExpenseListTable'
 import { Button } from '@/components/ui/button'
-import { PenBox, Trash } from 'lucide-react'
+import { ArrowLeft, MoveLeft, PenBox, Trash } from 'lucide-react'
 
 // imports for delete button alert dialoge
 import {
@@ -27,7 +27,8 @@ import {
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 import { ChevronRightIcon } from '@radix-ui/react-icons'
-import EditExpense from './_components/EditExpense'
+import EditExpense from '../_components/EditCategory'
+import Link from 'next/link'
 
 function Expenses({ params }) { // Here params is an object that contains the dynamic segments (parameters) from a URL in a web application. It allows us to capture values from the URL and use them in our code. In general the params object contains various properties, but for our use case we can simply extract the id to fetch category ID
 
@@ -94,7 +95,15 @@ function Expenses({ params }) { // Here params is an object that contains the dy
 
   return (
     <div className='p-10'>
-      <h2 className='font-bold text-3xl flex items-center justify-between'>My Expenses
+      <h2 className='font-bold text-3xl flex items-center justify-between'>
+        <div className='flex gap-3 items-center'>
+          <Link href={'/dashboard/categories'}>
+            <Button variant="ghost" size="icon" className='text=lg'>
+              <ArrowLeft className="h-7 w-7" />
+            </Button>
+          </Link>
+          My Expenses
+        </div>
         <div className='flex gap-2 items-center'>
 
           {/* Update Button */}
@@ -142,10 +151,8 @@ function Expenses({ params }) { // Here params is an object that contains the dy
         />
       </div>
       <div className='mt-4'>
-        <h2 className='font-bold text-lg'>Latest Expenses</h2>
         <ExpenseListTable
           expenseList={expenseList}
-          categoryName={categoryInfo.name}
           refreshData={() => getCategoryInfo()} />
       </div>
     </div>

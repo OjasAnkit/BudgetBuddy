@@ -21,7 +21,7 @@ import categories from '@/utils/schema';
 import { eq } from 'drizzle-orm';
 import { toast } from 'sonner';
 
-function EditExpense({ categoryInfo, refreshData }) {
+function EditCategory({ categoryInfo, refreshData }) {
 
     const [emojiIcon, setEmojiIcon] = useState(); /*setting the default emoji icon*/
 
@@ -124,4 +124,4 @@ function EditExpense({ categoryInfo, refreshData }) {
     )
 }
 
-export default EditExpense
+export default EditCategory
