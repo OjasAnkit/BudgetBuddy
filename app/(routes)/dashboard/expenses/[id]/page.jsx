@@ -42,6 +42,10 @@ function Expenses({ params }) { // Here params is an object that contains the dy
     user && getCategoryInfo();
   }, [user])
 
+  const goToCategories = () => {
+    route?.replace('/dashboard/categories')
+  }
+
   const getCategoryInfo = async () => {
     const result = await db
       .select({
@@ -97,11 +101,13 @@ function Expenses({ params }) { // Here params is an object that contains the dy
     <div className='p-10'>
       <h2 className='font-bold text-3xl flex items-center justify-between'>
         <div className='flex gap-3 items-center'>
-          <Link href={'/dashboard/categories'}>
-            <Button variant="ghost" size="icon" className='text=lg'>
-              <ArrowLeft className="h-7 w-7" />
-            </Button>
-          </Link>
+          <Button
+            variant="ghost"
+            size="icon"
+            className='text=lg'
+            onClick={goToCategories}>
+            <ArrowLeft className="h-7 w-7" />
+          </Button>
           My Expenses
         </div>
         <div className='flex gap-2 items-center'>
