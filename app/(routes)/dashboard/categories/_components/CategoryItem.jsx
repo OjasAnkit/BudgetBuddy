@@ -6,7 +6,11 @@ import React, { useState } from 'react';
 function CategoryItem({ category }) {
 
     const calculateProgressPercentage = () => {
-        return 100 * category.totalSpent / category.amount; // total spent % is basically how much out of the total amount the user has already spent
+        let progressPercentage = 100 * category.totalSpent / category.amount; // total spent % is basically how much out of the total amount the user has already spent
+        if (progressPercentage > 100) {
+            return 100;
+        }
+        else return progressPercentage;
     }
 
     return (
