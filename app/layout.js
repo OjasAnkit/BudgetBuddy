@@ -1,6 +1,7 @@
 import { Inter, Outfit } from "next/font/google"; // importing the outfit font from google fonts
 import "./globals.css";
 import {ClerkProvider} from '@clerk/nextjs'
+import { Toaster } from "@/components/ui/sonner";
 
 const outfit = Outfit({ subsets: ["latin"] }); // this is the font that is applied for the application
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
         {
           // using the below line we are basically applying the class containing the font to the entire body of content
           <body className={outfit.className}>
+            <Toaster/>
             {children}
           </body> /* all the pages will be rendered through children here */
         }

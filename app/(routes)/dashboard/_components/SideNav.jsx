@@ -4,10 +4,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { LayoutGrid, PiggyBank, Banknote, ShieldCheck } from 'lucide-react'
 import { UserButton } from '@clerk/nextjs'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { Linden_Hill } from 'next/font/google'
 
 function SideNav() {
+    const router = useRouter();
+    const onLogoClick = () => {
+        router.replace('/');
+    };
+
     const menuList=[
         {
             id:1,
@@ -35,13 +40,16 @@ function SideNav() {
         }
     ]
     const path=usePathname();
-    console.log(path)
+    // console.log(path)
   return (
     <div className='h-screen p-5 border shadow-sm'>
         <Image src={'/logo.svg'}
         alt='logo'
         width={160}
-        height={100}/>
+        height={100}
+        className='cursor-pointer'
+        onClick={()=>onLogoClick()}
+        />
         <div className='mt-5'>
             {menuList.map((menu,index)=>(
                 <Link href={menu.path}>
