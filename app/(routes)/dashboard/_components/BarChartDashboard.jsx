@@ -1,5 +1,5 @@
 import React from 'react'
-import { Bar, BarChart, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { Bar, BarChart, ComposedChart, Legend, ReferenceArea, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 function BarChartDashboard({ categoryList }) {
     return (
@@ -17,8 +17,8 @@ function BarChartDashboard({ categoryList }) {
                     <YAxis />
                     <Tooltip />
                     <Legend></Legend>
-                    <Bar dataKey='totalSpent' fill='#007DFC' />
-                    <Bar dataKey='amount' fill='#b3d9ff' />
+                    <Bar dataKey='totalSpent' stackId='a' fill='#007DFC' />
+                    <Bar dataKey='amount' stackId='a' fill='#b3d9ff' />
                 </BarChart>
             </ResponsiveContainer>
         </div >
