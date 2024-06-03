@@ -3,13 +3,10 @@ import React from 'react'
 
 function DashboardHeader() {
   return (
-    <div className='p-5 shadow-sm border-b flex justify-between'>
-        <div>
-            Search 
-        </div>
-        <div>
-            <UserButton/>
-        </div>
+    <div className='p-5 shadow-sm border-b flex justify-end'>
+      <div>
+        <UserButton />
+      </div>
     </div>
   )
 }
