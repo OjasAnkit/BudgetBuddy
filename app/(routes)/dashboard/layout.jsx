@@ -28,7 +28,7 @@ function DashboardLayout({children}) {
 
     /* . is the standard property accessor in JavaScript. If you use . to access a property of an object that is null or undefined, it will throw a TypeError. */  
 
-    console.log(result.length);
+    // console.log(result.length);
     if(result.length==0)
     {
       console.log('No categories found. Redirecting user to categories page.')
