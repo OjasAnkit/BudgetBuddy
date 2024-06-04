@@ -66,8 +66,17 @@ function Expenses({ params }) { // Here params is an object that contains the dy
 
   // getting all the expenses pertaining to the given category info to display on the page
   const getExpenses = async () => {
-    const result = await db.select()
+    const result = await db.select(
+      {
+        id: expenses.id,
+        name: expenses.name,
+        amount: expenses.amount,
+        createdAt: expenses.createdAt,
+        category_name: categories.name
+      }
+    )
       .from(expenses)
+      .leftJoin(categories, eq(categories.id, expenses.category_id)) // category c left join expense e on c.id = e.category_id
       .where(eq(expenses.category_id, params.id)) // params.id -> category id, and expenses.category_id -> category id of each expense
       .orderBy(desc(expenses.id)) // sorting by desc to get the latest expense on top
 

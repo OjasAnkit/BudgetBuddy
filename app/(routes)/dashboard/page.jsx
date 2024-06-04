@@ -43,7 +43,9 @@ function Dashboard() {
       id: expenses.id,
       name: expenses.name,
       amount: expenses.amount,
-      createdAt: expenses.createdAt
+      createdAt: expenses.createdAt,
+      category_name: categories.name,
+      category_icon: categories.icon
     }).from(categories)
       .rightJoin(expenses, eq(categories.id, expenses.category_id))
       .where(eq(categories.createdBy, user?.primaryEmailAddress?.emailAddress))
