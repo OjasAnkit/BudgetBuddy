@@ -36,7 +36,8 @@ function expensePage() {
         <div className='p-10'>
             <h2 h2 className='font-bold text-3xl flex items-center justify-between' > My Expenses </h2>
             <ExpenseListTable
-                expenseList={expenseList} />
+                expenseList={expenseList}
+                refreshData={getAllExpenses()} />
 
         </div >
     )

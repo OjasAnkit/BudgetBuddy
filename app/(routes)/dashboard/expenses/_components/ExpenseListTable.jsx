@@ -15,7 +15,7 @@ export default function ExpenseListTable({ expenseList, refreshData }) {
         if (result) {
             refreshData(); //using to refresh the expense table after deleting expense
             toast(`Expense Deleted!😁`, {
-                description: `You have successfully deleted '${expense.name}' expense from the category.`,
+                description: `You have successfully deleted '${expense.name}' expense.`,
             });
         }
     }
@@ -35,7 +35,7 @@ export default function ExpenseListTable({ expenseList, refreshData }) {
                     <h2>&#x20b9;{Number(expenses?.amount).toLocaleString("en-IN")}</h2>
                     <h2>{expenses.createdAt}</h2>
                     <h2 className='text-red-600 cursor-pointer items-center' // on clicking the delete button, calling the delete expense function, and passing the expense to be deleted
-                        onClick={() => deleteExpense(expenses)}><Trash></Trash></h2>
+                    ><Trash onClick={() => deleteExpense(expenses)}></Trash></h2>
                 </div>
             ))}
         </div>
