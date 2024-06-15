@@ -74,57 +74,7 @@ export default function ExpenseListTable({ expenseList, refreshData }) {
                     <h2>{expenses.createdAt}</h2>
                     <h2 className=' items-center flex justify-start gap-3'>
                         {/* // on clicking the delete button, calling the delete expense function, and passing the expense to be deleted */}
-                        <div>
-                            <Dialog>
-                                <DialogTrigger asChild>
-                                    <PenBox className='cursor-pointer text-primary' onClick={() => setExpense(expenses)}></PenBox>
-                                </DialogTrigger>
-                                <DialogContent>
-                                    <DialogHeader>
-                                        <DialogTitle>Update Expense</DialogTitle>
-                                        <DialogDescription>
-                                            <div className="mt-5">
-                                                <Button
-                                                    variant="outline"
-                                                    className="text-xl"
-                                                >
-                                                    {expenses.category_icon}
-                                                </Button>{" "}
-                                                {/*using the emoji icon of the expense*/}
-                                            </div>
 
-                                            <div className="mt-5">
-                                                <h2 className="text-black font-medium my-1">Name</h2>
-                                                <Input
-                                                    defaultValue={expenses.name}
-                                                    onChange={(e) => setExpenseName(e.target.value)}
-                                                />
-                                            </div>
-
-                                            <div className="mt-5">
-                                                <h2 className="text-black font-medium my-1">Amount</h2>
-                                                <Input
-                                                    defaultValue={expenses.amount}
-                                                    type="Number"
-                                                    onChange={(e) => setExpenseAmount(e.target.value)}
-                                                />
-                                            </div>
-                                        </DialogDescription>
-                                    </DialogHeader>
-                                    <DialogFooter className="sm:justify-start">
-                                        <DialogClose asChild>
-                                            <Button
-                                                className="mt-7 w-full"
-                                                disabled={!(expenseName && expenseAmount)}
-                                                onClick={() => editExpense()}
-                                            >
-                                                Update Expense
-                                            </Button>
-                                        </DialogClose>
-                                    </DialogFooter>
-                                </DialogContent>
-                            </Dialog>
-                        </div>
                         <Trash className='cursor-pointer text-red-600' onClick={() => deleteExpense(expenses)}></Trash>
                     </h2>
 
